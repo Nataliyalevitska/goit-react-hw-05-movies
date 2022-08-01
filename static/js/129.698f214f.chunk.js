@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_05_movies=self.webpackChunkgoit_react_hw_05_movies||[]).push([[129],{2129:function(n,e,r){r.r(e),r.d(e,{default:function(){return u}});var t=r(577),o=r(184);function u(){return(0,o.jsx)("div",{onLoad:function(){return t.Am.error("404")},children:" 404! Page not found! "})}}}]);
+//# sourceMappingURL=129.698f214f.chunk.js.map
