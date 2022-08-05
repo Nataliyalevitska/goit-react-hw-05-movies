@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
   useHistory,
+  useLocation,
 } from "react-router-dom";
 import { Link } from "react-router-dom";
 import * as ApiService from "../services/ApiService";
@@ -25,6 +26,7 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState("");
   const { url } = useRouteMatch();
   const history = useHistory();
+  const location = useLocation();
   // console.log(movie);
 
   useEffect(() => {
@@ -36,7 +38,8 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   const handleGoBack = () => {
-    history.goBack();
+    // history.goBack();
+    history.push(location.state.from);
   };
   return (
     <>
@@ -73,11 +76,21 @@ export default function MovieDetailsPage() {
             <hr />
             <h3 className={s.titleUp}>Additional information</h3>
 
-            <Link className={s.link} to={`${url}/cast`}>
+            <Link className={s.link} to={{
+              pathname: `${url}/cast`,
+              state: {
+                from: location.state.from,
+              },
+            }}>
               Cast
             </Link>
             <br />
-            <Link className={s.link} to={`${url}/reviews`}>
+            <Link className={s.link} to={{
+              pathname: `${url}/reviews`,
+              state: {
+                from: location.state.from,
+              },
+            }}>
               Reviews
             </Link>
 

@@ -15,7 +15,7 @@ export default function Cast({ movieId }) {
       });
     return () => {};
   }, [movieId]);
-  // console.log();
+ 
   return (
     <ul className={s.list}>
       {castS.map((cas) => {

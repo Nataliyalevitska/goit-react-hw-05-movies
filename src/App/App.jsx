@@ -2,10 +2,6 @@ import { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import AppBar from "../components/AppBar/AppBar";
 import Container from "../components/Container/Conteiner";
-// import Homepage from "../views/HomePage";
-// import MoviesPage from "../views/MoviesPage";
-// import NotFoundView from "../views/NotFound";
-// import MovieDetailsPage from "../views/MovieDetailsPage";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,7 +21,7 @@ export default function App() {
         <Container>
           <AppBar />
           <Switch>
-            <Route path="/" exact>
+            <Route exact path="/" >
               <Homepage />
             </Route>
             <Route exact path="/movies">
