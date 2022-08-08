@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import AppBar from "../components/AppBar/AppBar";
 import Container from "../components/Container/Conteiner";
 
@@ -18,24 +18,38 @@ export default function App() {
   return (
     <>
       <Suspense fallback={<Loader />}>
+
         <Container>
           <AppBar />
+
           <Switch>
-            <Route exact path="/" >
+  
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
+             
+          <Route  path="/home"> 
               <Homepage />
-            </Route>
-            <Route exact path="/movies">
+              </Route>
+           
+
+            <Route exact path="/movies" >
               <MoviesPage />
             </Route>
-            <Route path="/movies/:movieId">
+
+            <Route  path="/movies/:movieId">
               <MovieDetailsPage />
             </Route>
-            <Route>
+
+            <Route path="*">
               <NotFoundView />
             </Route>
-          </Switch>
+
+        </Switch>
+
         </Container>
+             
       </Suspense>
+   
+
       <ToastContainer position="top-center" autoClose={3000} />
     </>
   );
